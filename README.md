@@ -13,4 +13,4 @@ A collection of practical Bash scripts for Linux system administration, troubles
 ## Notes
 
 These scripts are part of my Linux administration and automation portfolio.
-# AI-Control-Panel
+
