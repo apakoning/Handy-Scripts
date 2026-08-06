@@ -1,4 +1,4 @@
-# Handy Scripts
+# Handy-Scripts
 
 A collection of practical Bash scripts for Linux system administration, troubleshooting, setup, maintenance and automation.
 
