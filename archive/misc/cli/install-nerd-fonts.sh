@@ -23,3 +23,4 @@ sudo fc-cache -fv
 
 echo "✅ All Nerd Fonts installed system-wide to: $FONT_DIR"
 
+

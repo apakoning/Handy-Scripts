@@ -11,7 +11,7 @@ tools=(
 )
 
 printf "\nChecking for installed CLI tools...\n"
-printf "------------------------------------\n"
+printf '%s\n' '------------------------------------'
 
 for tool in "${tools[@]}"; do
     if command -v "$tool" &>/dev/null; then
@@ -20,3 +20,4 @@ for tool in "${tools[@]}"; do
         printf "%-15s Missing\n" "$tool"
     fi
 done
+

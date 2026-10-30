@@ -21,3 +21,4 @@ plt.tight_layout()
 
 plt.savefig("/home/apak/netlog.png")
 plt.show()
+

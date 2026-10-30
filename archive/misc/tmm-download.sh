@@ -60,3 +60,4 @@ done < work/numbered_lessons.txt
 echo
 echo "[+] Done. Failures, if any:"
 cat logs/failures.log 2>/dev/null || true
+

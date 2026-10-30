@@ -41,3 +41,4 @@ echo "kernel.panic_on_oops = 1" >> /etc/sysctl.conf
 
 echo "✅ Reboot permissions and behavior restored to default."
 
+

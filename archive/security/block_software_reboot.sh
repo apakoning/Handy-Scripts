@@ -31,3 +31,4 @@ echo "kernel.panic_on_oops = 0" >> /etc/sysctl.conf
 
 echo "✅ Software-triggered reboots are now blocked unless explicitly run by an admin."
 
+

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 #This is a Bash script for RHEL that:
 #searches all mounted real drives
 #skips fake/system filesystems like /proc, /sys, etc.
@@ -7,11 +8,15 @@
 
 
 
-#!/usr/bin/env bash
 
 set -u
 
-needle="Companions Along The Way.pdf"
+if [[ "${1:-}" == --help || $# -ne 1 ]]; then
+    echo "Usage: $0 FILENAME.pdf"
+    [[ "${1:-}" == --help ]] && exit 0
+    exit 2
+fi
+needle="$1"
 needle_lc="${needle,,}"
 
 # Filesystems to skip
@@ -85,3 +90,4 @@ echo
 if [ "$found" -eq 0 ]; then
     echo "No match found for: $needle"
 fi
+

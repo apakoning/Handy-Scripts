@@ -1,17 +1,15 @@
-for dns in \
-  "Router 192.168.100.1" \
-  "Cloudflare 1.1.1.1" \
-  "Google 8.8.8.8" \
-  "Quad9 9.9.9.9"
-do
-    name=${dns% *}
-    ip=${dns##* }
-
-    echo
-    echo "===== $name ($ip) ====="
-
-    for i in {1..5}; do
-        dig @"$ip" google.com A +stats +timeout=2 +tries=1 \
-        | grep "Query time"
-    done
+#!/usr/bin/env bash
+# Query configured resolvers five times each; this is not a comprehensive DNS benchmark.
+set -uo pipefail
+if [[ "${1:-}" == --help ]]; then echo "Usage: $0 [DOMAIN [DNS_SERVER...]]"; exit 0; fi
+command -v dig >/dev/null || { echo "dig is required (bind-utils on RHEL)." >&2; exit 1; }
+domain="${1:-example.com}"
+(( $# == 0 )) || shift
+servers=("$@")
+(( ${#servers[@]} )) || servers=(1.1.1.1 8.8.8.8 9.9.9.9)
+for server in "${servers[@]}"; do
+  printf '\n=== %s (%s) ===\n' "$server" "$domain"
+  for _ in {1..5}; do
+    dig @"$server" "$domain" A +stats +timeout=2 +tries=1 | grep 'Query time' || echo "Query failed or no timing returned."
+  done
 done

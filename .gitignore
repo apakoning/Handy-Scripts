@@ -1,32 +1,8 @@
-# Virtual environments
-.venv/
-venv/
-
-# Working directories
-work/
-logs/
-
-# Python
 __pycache__/
-*.pyc
-
-# Log and temporary files
-*.log
-*.tmp
-*.bak
-*.old
-*.swp
-*.swo
-*~
-
-# Environment files
+*.py[cod]
+.venv/
 .env
-.env.*
-
-# Secrets
-*.key
-*.pem
-
-# OS files
-.DS_Store
-Thumbs.db
+*.log
+*.pid
+*.tar.gz
+system-inventory-*/
